@@ -105,3 +105,4 @@ log
 .phptidy-cache
 _svn
 node_modules
+bower_components

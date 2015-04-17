@@ -1,10 +1,11 @@
 {
 	"predef": [  // Extra globals.
-		"Modernizr"
+		"define"
 	],
 
 	"browser": true,
 	"jquery": true,
+	"browserify": true,
 
 	//Enforcing options
 	"curly": true, // Require {} for every new block or scope.
