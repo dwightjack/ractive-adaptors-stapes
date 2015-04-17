@@ -1,0 +1,19 @@
+{
+  "name": "ractive-adaptors-stapes",
+  "version": "0.0.1",
+  "description": "Stapes.js adaptor for Ractive.js",
+  "main": "dist/ractive-adaptors-stapes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/dwightjack/ractive-adaptors-stapes.git"
+  },
+  "keywords": [
+    "stapes",
+    "ractive"
+  ],
+  "author": "Marco Solazzi <marco.solazzi@gmail.com>",
+  "license": "MIT"
+}
