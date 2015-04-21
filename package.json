@@ -1,6 +1,6 @@
 {
   "name": "ractive-adaptors-stapes",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Stapes.js adaptor for Ractive.js",
   "main": "dist/ractive-adaptors-stapes.js",
   "scripts": {
