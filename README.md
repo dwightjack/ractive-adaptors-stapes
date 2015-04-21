@@ -114,6 +114,10 @@ user._view.toHTML(); // outputs: '<h1>Hello John!</h1>'
 user.destroy(); //also runs user._view.teardown();
 ```
 
+## Credits
+
+This adaptor is loosely ported to Stapes from [ractive-adaptors-backbone](https://github.com/ractivejs/ractive-adaptors-backbone).
+
 ## Release History
 
 0.1.0 First release
