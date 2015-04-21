@@ -80,7 +80,6 @@
                     }
 
                     // Otherwise if this is a POJO, reset the model
-                    //Backbone 1.1.2 no longer has reset and just uses set
                     stapesInst.set(object);
                 }
             };

@@ -17,6 +17,7 @@
   "author": "Marco Solazzi <marco.solazzi@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^9.0.8",
     "connect": "^3.3.5",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
@@ -37,11 +38,13 @@
     "merge-stream": "^0.1.7",
     "minimist": "^1.1.1",
     "moment": "^2.10.2",
+    "ractivate": "^0.2.0",
     "ractive": "^0.7.2",
     "run-sequence": "^1.0.2",
     "serve-index": "^1.6.3",
     "serve-static": "^1.9.2",
     "stapes": "^0.8.1",
-    "stapes-ui": "^0.1.0"
+    "stapes-ui": "^0.1.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

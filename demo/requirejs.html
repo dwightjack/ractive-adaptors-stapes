@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RequireJS Demo</title>
+</head>
+<body>
+
+<div id="container1"></div>
+
+<script type="text/ractive" id="container1-tmpl">
+    <p>{{user.name}} {{user.surname}}</p>
+    <p>
+        <label for="name">Change Name</label> <input type="text" name="name" id="name" value="{{user.name}}"/>
+    </p>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.js"></script>
+<script>
+    require.config({
+        paths: {
+            // vendor
+            jquery: '../bower_components/jquery/dist/jquery',
+            stapes: '../bower_components/stapes/stapes',
+            ractive: '../bower_components/ractive/ractive',
+            'ractive-stapes': '../dist/ractive-adaptors-stapes.browser'
+        }
+    });
+
+    require(['ractive', 'stapes', 'ractive-stapes'], function (Ractive, Stapes) {
+
+        var model = new (Stapes.subclass({}))();
+
+        model.set({
+            name: 'John',
+            surname: 'Doe'
+        });
+
+        var view = new Ractive({
+            el: document.getElementById('container1'),
+            template: '#container1-tmpl',
+            data: {
+                user: model
+            },
+            adapt: ['Stapes']
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

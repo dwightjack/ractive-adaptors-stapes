@@ -1,4 +1,4 @@
-/*! ractive-adaptors-stapes - v0.0.1 - 2015-04-17
+/*! ractive-adaptors-stapes - v0.0.1 - 2015-04-21
 * Copyright (c) 2015 ; Licensed MIT */
 (function (global, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -82,7 +82,6 @@
                     }
 
                     // Otherwise if this is a POJO, reset the model
-                    //Backbone 1.1.2 no longer has reset and just uses set
                     stapesInst.set(object);
                 }
             };

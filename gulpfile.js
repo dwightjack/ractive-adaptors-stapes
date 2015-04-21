@@ -13,6 +13,8 @@ var gulp = require('gulp'),
     merge = require('merge-stream'),
     karma = require('karma'),
     runSequence = require('run-sequence'),
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream'),
     pkg = require('./package.json'),
     banner;
 
@@ -49,9 +51,10 @@ gulp.task('jshint', function () {
 
 gulp.task('scripts', ['clean'], function() {
     var browserStream,
-        moduleStream;
+        moduleStream,
+        src = ['src/ractive-adaptors-stapes.js', 'src/ractive-stapes-ui.js'];
 
-    browserStream = gulp.src(['src/ractive-adaptors-stapes.js', 'src/lib/*.js'])
+    browserStream = gulp.src(src)
         .pipe($.concat('ractive-adaptors-stapes.browser.js'))
         .pipe(gulp.dest('dist'))
         .pipe($.uglify({ preserveComments: 'some'}))
@@ -59,7 +62,7 @@ gulp.task('scripts', ['clean'], function() {
         .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest('dist'));
 
-    moduleStream = gulp.src('src/ractive-adaptors-stapes.js')
+    moduleStream = gulp.src(src)
         .pipe($.header(banner, {pkg: pkg}))
         .pipe(gulp.dest('dist'));
 
@@ -91,10 +94,19 @@ gulp.task('serve', function () {
 
 gulp.task('bump', function () {
     var argv = require('minimist')(process.argv.slice(2));
-
     return gulp.src(['package.json', 'bower.json'])
         .pipe($.bump({type: argv.type || 'patch'}))
         .pipe(gulp.dest('./'));
+});
+
+gulp.task('browserify', function() {
+    return browserify('./demo/browserify/application.js')
+        .transform(require('ractivate'))
+        .bundle()
+        //Pass desired output filename to vinyl-source-stream
+        .pipe(source('application-bundle.js'))
+        // Start piping stream to tasks!
+        .pipe(gulp.dest('./demo/browserify/'));
 });
 
 gulp.task('default', function (done) {
